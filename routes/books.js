@@ -1,8 +1,8 @@
 const express = require("express");
 const Book = require("../models/book");
+const jsonSchema = require("jsonschema");
 
 const router = new express.Router();
-
 
 /** GET / => {books: [book, ...]}  */
 
