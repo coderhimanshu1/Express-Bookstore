@@ -1,8 +1,8 @@
 const express = require("express");
 const Book = require("../models/book");
 const jsonSchema = require("jsonschema");
-const newBookSchema = required("../schemas/newBookSchema");
-const updateBookSchema = required("../schemas/updateBookSchema");
+const newBookSchema = require("../schemas/newBookSchema");
+const updateBookSchema = require("../schemas/updateBookSchema");
 const expressError = require("../expressError");
 
 const router = new express.Router();
@@ -52,6 +52,12 @@ router.post("/", async function (req, res, next) {
 router.put("/:isbn", async function (req, res, next) {
   try {
     const validate = jsonSchema.validate(req.body, updateBookSchema);
+    if ("isbn" in req.body) {
+      return next({
+        status: 400,
+        message: "Not allowed",
+      });
+    }
     if (!validate.valid) {
       return next({
         status: 400,

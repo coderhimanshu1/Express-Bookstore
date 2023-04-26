@@ -3,7 +3,6 @@ process.env.NODE_ENV = "test";
 const request = require("supertest");
 const app = require("../app");
 const db = require("../db");
-const { afterEach, describe, test } = require("node:test");
 
 let testIsbn;
 
@@ -64,7 +63,7 @@ describe("POST/books", () => {
 
 describe("PUT/books/:isbn", () => {
   test("Update a book", async () => {
-    const response = (await request(app).put(`/books/${testIsbn}`)).send({
+    const response = await request(app).put(`/books/${testIsbn}`).send({
       amazon_url: "https://software.com",
       author: "testWriter",
       language: "english",
@@ -93,7 +92,7 @@ describe("PUT/books/:isbn", () => {
 
   test("Responds 404 if book not found", async function () {
     await request(app).delete(`/books/${testIsbn}`);
-    const response = await request(app).put(`/books/${testIsbn}`);
+    const response = await request(app).delete(`/books/${testIsbn}`);
     expect(response.statusCode).toBe(404);
   });
 });
@@ -102,7 +101,7 @@ describe("DELETE/books/:isbn", () => {
   test("Delete a book", async () => {
     const response = await request(app).delete(`/books/${testIsbn}`);
     expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual('{ message: "Book deleted" }');
+    expect(response.body).toEqual({ message: "Book deleted" });
   });
 });
 

@@ -1,72 +1,64 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "http://example.com/example.json",
-  "title": "Root Schema",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
   "type": "object",
-  "default": {},
-  "required": [
-    "amazon_url",
-    "author",
-    "language",
-    "pages",
-    "publisher",
-    "title",
-    "year"
-  ],
+  "title": "The Root Schema",
+  "required": ["author", "language", "pages", "title", "year"],
   "properties": {
-    "amazon_url": {
-      "title": "The amazon_url Schema",
+    "amazon-url": {
+      "$id": "#/properties/amazon-url",
       "type": "string",
+      "title": "The Amazon-url Schema",
       "default": "",
-      "examples": ["http://a.co/eobPtX2"]
+      "examples": ["http://a.co/eobPtX2"],
+      "pattern": "^(.*)$"
     },
     "author": {
-      "title": "The author Schema",
+      "$id": "#/properties/author",
       "type": "string",
+      "title": "The Author Schema",
       "default": "",
-      "examples": ["Matthew Lane"]
+      "examples": ["Matthew Lane"],
+      "pattern": "^(.*)$"
     },
     "language": {
-      "title": "The language Schema",
+      "$id": "#/properties/language",
       "type": "string",
+      "title": "The Language Schema",
       "default": "",
-      "examples": ["english"]
+      "examples": ["english"],
+      "pattern": "^(.*)$"
     },
     "pages": {
-      "title": "The pages Schema",
-      "type": "integer",
+      "$id": "#/properties/pages",
+      "type": "number",
+      "title": "The Pages Schema",
       "default": 0,
       "examples": [264]
     },
     "publisher": {
-      "title": "The publisher Schema",
+      "$id": "#/properties/publisher",
       "type": "string",
+      "title": "The Publisher Schema",
       "default": "",
-      "examples": ["Princeton University Press"]
+      "examples": ["Princeton University Press"],
+      "pattern": "^(.*)$"
     },
     "title": {
-      "title": "The title Schema",
+      "$id": "#/properties/title",
       "type": "string",
+      "title": "The Title Schema",
       "default": "",
-      "examples": ["Power-Up: Unlocking the Hidden Mathematics in Video Games"]
+      "examples": ["Power-Up: Unlocking the Hidden Mathematics in Video Games"],
+      "pattern": "^(.*)$"
     },
     "year": {
-      "title": "The year Schema",
-      "type": "integer",
+      "$id": "#/properties/year",
+      "type": "number",
+      "title": "The Year Schema",
       "default": 0,
       "examples": [2017]
     }
-  },
-  "examples": [
-    {
-      "isbn": "0691161518",
-      "amazon_url": "http://a.co/eobPtX2",
-      "author": "Matthew Lane",
-      "language": "english",
-      "pages": 264,
-      "publisher": "Princeton University Press",
-      "title": "Power-Up: Unlocking the Hidden Mathematics in Video Games",
-      "year": 2017
-    }
-  ]
+  }
 }
