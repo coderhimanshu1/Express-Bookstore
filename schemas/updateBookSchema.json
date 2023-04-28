@@ -6,6 +6,7 @@
   "title": "The Root Schema",
   "required": ["author", "language", "pages", "title", "year"],
   "properties": {
+    "additionalProperties": false,
     "amazon-url": {
       "$id": "#/properties/amazon-url",
       "type": "string",
