@@ -5,12 +5,12 @@
   "type": "object",
   "title": "The Root Schema",
   "required": ["author", "language", "pages", "title", "year"],
+  "additionalProperties": false,
   "properties": {
-    "additionalProperties": false,
-    "amazon-url": {
-      "$id": "#/properties/amazon-url",
+    "amazon_url": {
+      "$id": "#/properties/amazon_url",
       "type": "string",
-      "title": "The Amazon-url Schema",
+      "title": "The Amazon url Schema",
       "default": "",
       "examples": ["http://a.co/eobPtX2"],
       "pattern": "^(.*)$"
